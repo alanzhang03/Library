@@ -31,8 +31,9 @@ function displayLibrary(){
         const book = myLibrary[i];
         const bookDiv = document.createElement('div');
         bookDiv.textContent = book.info();
+        bookDiv.classList.add('book-entry');
         library.appendChild(bookDiv);
-    }
+  }
 }
 
 displayLibrary();
