@@ -16,6 +16,7 @@ function addBookToLibrary(book) {
 }
 
 
+
 const percyJackson = new Book("Percy Jackson", "Rick", 250);
 const lordOfTheRings = new Book("Lord of the Rings", "J.K. Rowling", 300);
 const markOfAthena = new Book("Mark of Athena", "Rick", 550);
@@ -37,3 +38,12 @@ function displayLibrary(){
 }
 
 displayLibrary();
+
+const newButton = document.querySelector('#add-new');
+const form = document.querySelector('#form');
+
+newButton.addEventListener('click', displayForm);
+
+function displayForm(){
+  form.show();
+}
