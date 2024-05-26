@@ -41,9 +41,17 @@ displayLibrary();
 
 const newButton = document.querySelector('#add-new');
 const form = document.querySelector('#form');
+const closeButton = document.querySelector('#close-modal');
 
-newButton.addEventListener('click', displayForm);
+
 
 function displayForm(){
   form.show();
 }
+
+function closeForm(){
+  form.close();
+}
+
+newButton.addEventListener('click', displayForm);
+closeButton.addEventListener('click', closeForm);
