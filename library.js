@@ -22,7 +22,7 @@ const submitButton = document.querySelector('#submit-button');
 const clearLibraryButton = document.querySelector("#clear-library")
 
 function displayForm(){
-  form.show();
+  form.showModal();
 }
 
 function closeForm(){
@@ -50,11 +50,9 @@ function clearLibrary(){
   myLibrary.length = 0; 
 }
 
-newButton.addEventListener('click', displayForm);
-closeButton.addEventListener('click', closeForm);
-submitButton.addEventListener('click', submitForm);
-clearLibraryButton.addEventListener("click", clearLibrary);
-
+function removeBook(){
+ //implement
+}
 
 function displayLibrary() {
   const library = document.querySelector('#library');
@@ -62,9 +60,19 @@ function displayLibrary() {
   for (let i = 0; i < myLibrary.length; i++) {
     const book = myLibrary[i];
     const bookDiv = document.createElement('div');
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove Item"
+    removeButton.addEventListener("click", removeBook);
     bookDiv.textContent = book.info();
     bookDiv.classList.add('book-entry');
+    bookDiv.appendChild(removeButton);
     library.appendChild(bookDiv);
   }
 }
 
+
+
+newButton.addEventListener('click', displayForm);
+closeButton.addEventListener('click', closeForm);
+submitButton.addEventListener('click', submitForm);
+clearLibraryButton.addEventListener("click", clearLibrary);

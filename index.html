@@ -12,31 +12,33 @@
     <h1 id="library-header">Library Content</h1>
     <div id="library"></div>
 
-    <div id="add-new-container">
+    <div id="menu-buttons-container">
         <button id="add-new">New Book</button>
         <button id="clear-library">Clear library</button>
     </div> 
-    <dialog id="modal">
-        <form>
-            <ul>
-                <li>
-                    <label for="newBookTitle">Book Title:</label>
-                    <input type="text" id="newBookTitle" name="titleBook" />
-                </li>
-                <li>
-                    <label for="newAuthor">Author:</label>
-                    <input type="text" id="newAuthor" name="authorBook" />
-                </li>
-                <li>
-                    <label for="bookPages">Total Pages:</label>
-                    <input type="text" id="bookPages" name="pageBook" />
-                </li>
-            </ul>
-            <div id="submit-close-buttons-container">
-                <button type="button" id="submit-button">Submit</button>
-                <button type="button" id="close-button">Close</button>
-            </div>
-        </form>
-    </dialog>
+    <div id="modal-container">
+        <dialog id="modal">
+            <form>
+                <ul>
+                    <li>
+                        <label for="newBookTitle">Book Title:</label>
+                        <input type="text" id="newBookTitle" name="titleBook" />
+                    </li>
+                    <li>
+                        <label for="newAuthor">Author:</label>
+                        <input type="text" id="newAuthor" name="authorBook" />
+                    </li>
+                    <li>
+                        <label for="bookPages">Total Pages:</label>
+                        <input type="text" id="bookPages" name="pageBook" />
+                    </li>
+                </ul>
+                <div id="submit-close-buttons-container">
+                    <button type="button" id="submit-button">Submit</button>
+                    <button type="button" id="close-button">Close</button>
+                </div>
+            </form>
+        </dialog>
+    </div>
 </body>
 </html>
