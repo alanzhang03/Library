@@ -3,6 +3,9 @@
     padding: 0;
 }
 
+ul{
+    list-style-type: none;
+}
 
 #library-header{
     text-align: center;
@@ -42,4 +45,18 @@
 
 #form-container::backdrop{
     opacity: .2;
+}
+
+#modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 10px 10px 5px #888888;
+}
+#modal::backdrop.in {
+    opacity: .5;
 }
