@@ -21,18 +21,25 @@
 
 #add-new-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 40px;
+    width: 10%;
+    padding-left: 45%;
+    
     
 }
 
 #add-new{
     font-size: 2vh;
 }
+#clear-library{
+    font-size: 2vh;
+}
 #form-container{
     padding-left: 10;
 }
-#form{
 
+#form-container::backdrop{
+    opacity: .2;
 }
