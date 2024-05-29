@@ -86,7 +86,31 @@ function displayLibrary() {
           displayLibrary();
       });
 
-      bookDiv.appendChild(removeButton);
+      const readButton = document.createElement("button");
+      readButton.className = "read-button-style";
+      readButton.textContent = "Not Read";
+      
+      readButton.addEventListener("click", readButtonController);
+
+      function readButtonController(){
+        if(readButton.textContent == "Read"){
+          readButton.textContent = "Not Read";
+          readButton.style.backgroundColor = "lightcoral"
+        }
+        else{
+          readButton.textContent = "Read";
+          readButton.style.backgroundColor = "lightgreen"
+        }
+      }
+
+
+      const readRemoveButtonContainer = document.createElement("div");
+      readRemoveButtonContainer.className = "read-remove-button-container";
+
+      readRemoveButtonContainer.appendChild(removeButton);
+      readRemoveButtonContainer.appendChild(readButton);
+
+      bookDiv.appendChild(readRemoveButtonContainer);
       library.appendChild(bookDiv);
   }
 }
