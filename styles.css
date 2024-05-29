@@ -1,5 +1,6 @@
 body{
     background-color: cadetblue;
+    font-family: "Georgia";
 }
 
 ul{
@@ -17,7 +18,8 @@ button:hover{
 
 #library-header{
     text-align: center;
-    font-size: 10vh;
+    font-size: 7vh;
+    font-weight: bolder
 
 }
 
