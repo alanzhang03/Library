@@ -7,8 +7,10 @@ function Book(name, author, pages) {
 
 }
 
+
 Book.prototype.info = function() {
-  return `${this.name} by ${this.author} has ${this.pages} total pages`;
+  return this.name + "\n" + this.author + "\n" + this.pages;
+
 }
 
 function addBookToLibrary(book) {
@@ -34,6 +36,8 @@ function submitForm() {
   const authorInput = document.querySelector("#newAuthor").value;
   const pagesInput = document.querySelector("#bookPages").value;
 
+  bookInput.className = "newBookTitle";
+
   if (bookInput && authorInput && pagesInput) {
     const newBook = new Book(bookInput, authorInput, parseInt(pagesInput));
     addBookToLibrary(newBook);
@@ -45,30 +49,48 @@ function submitForm() {
 }
 
 function clearLibrary(){
-  const library = document.querySelector('#library');
-  library.innerHTML = '';
-  myLibrary.length = 0; 
+  myLibrary = [];
+  displayLibrary();
 }
 
-function removeBook(){
- //implement
-}
+
 
 function displayLibrary() {
   const library = document.querySelector('#library');
   library.innerHTML = ''; 
   for (let i = 0; i < myLibrary.length; i++) {
-    const book = myLibrary[i];
-    const bookDiv = document.createElement('div');
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove Item"
-    removeButton.addEventListener("click", removeBook);
-    bookDiv.textContent = book.info();
-    bookDiv.classList.add('book-entry');
-    bookDiv.appendChild(removeButton);
-    library.appendChild(bookDiv);
+      const book = myLibrary[i];
+      const bookDiv = document.createElement('div');
+      bookDiv.className = 'book-entry';
+
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'book-title';
+      titleDiv.innerText = book.name;
+      bookDiv.appendChild(titleDiv);
+
+      const authorDiv = document.createElement('div');
+      authorDiv.className = 'book-author';
+      authorDiv.innerText = `By: ${book.author}`;
+      bookDiv.appendChild(authorDiv);
+
+      const pagesDiv = document.createElement('div');
+      pagesDiv.className = 'book-pages';
+      pagesDiv.innerText = `${book.pages} total pages`;
+      bookDiv.appendChild(pagesDiv);
+
+      const removeButton = document.createElement("button");
+      removeButton.className = "remove-button-style";
+      removeButton.textContent = "Remove";
+      removeButton.addEventListener("click", () => {
+          myLibrary.splice(i, 1);
+          displayLibrary();
+      });
+
+      bookDiv.appendChild(removeButton);
+      library.appendChild(bookDiv);
   }
 }
+
 
 
 

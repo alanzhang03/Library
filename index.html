@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <h1 id="library-header">Library Content</h1>
-    <div id="library"></div>
+    <h1 id="library-header">Library</h1>
+    <div id="library" class="library-grid"></div>
 
     <div id="menu-buttons-container">
         <button id="add-new">New Book</button>
@@ -19,16 +19,16 @@
     <div id="modal-container">
         <dialog id="modal">
             <form>
-                <ul>
-                    <li>
+                <ul id="user-input-container">
+                    <li id="book-title-css">
                         <label for="newBookTitle">Book Title:</label>
                         <input type="text" id="newBookTitle" name="titleBook" />
                     </li>
-                    <li>
+                    <li id="author-name-css">
                         <label for="newAuthor">Author:</label>
                         <input type="text" id="newAuthor" name="authorBook" />
                     </li>
-                    <li>
+                    <li id="pages-css">
                         <label for="bookPages">Total Pages:</label>
                         <input type="text" id="bookPages" name="pageBook" />
                     </li>
