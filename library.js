@@ -1,9 +1,10 @@
 let myLibrary = [];
 
-function Book(name, author, pages) {
+function Book(name, author, pages, symbol) {
   this.name = name;
   this.author = author;
   this.pages = pages;
+  this.symbol = symbol;
 }
 
 Book.prototype.info = function() {
@@ -45,9 +46,11 @@ function submitForm() {
   const bookInput = document.querySelector("#newBookTitle").value;
   const authorInput = document.querySelector("#newAuthor").value;
   const pagesInput = document.querySelector("#bookPages").value;
+  let bookSymbols = [ "📗", "📙", "📘", "📕"];
 
   if (bookInput && authorInput && pagesInput) {
-    const newBook = new Book(bookInput, authorInput, parseInt(pagesInput));
+    let randomBook = bookSymbols[Math.floor(Math.random() * bookSymbols.length)];
+    const newBook = new Book(bookInput, authorInput, parseInt(pagesInput), randomBook);
     addBookToLibrary(newBook);
     form.close();
     displayLibrary();
@@ -72,7 +75,7 @@ function displayLibrary() {
 
     const titleDiv = document.createElement('div');
     titleDiv.className = 'book-title';
-    titleDiv.innerText = book.name;
+    titleDiv.innerText = book.symbol + "\n" + book.name;
     bookDiv.appendChild(titleDiv);
 
     const authorDiv = document.createElement('div');
@@ -124,6 +127,5 @@ newButton.addEventListener('click', displayForm);
 closeButton.addEventListener('click', closeForm);
 submitButton.addEventListener('click', submitForm);
 clearLibraryButton.addEventListener("click", clearLibrary);
-
 
 document.addEventListener('DOMContentLoaded', loadLibrary);
