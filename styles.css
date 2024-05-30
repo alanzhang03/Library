@@ -83,7 +83,6 @@ button:hover{
     justify-content: center;
     align-items: center;
 
-
 }
 
 #close-button, #submit-button{
@@ -114,7 +113,11 @@ button:hover{
     background-color: lightcoral;
 }
 
-
+.read-remove-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
