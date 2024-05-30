@@ -1,10 +1,11 @@
 let myLibrary = [];
 
-function Book(name, author, pages, symbol) {
+function Book(name, author, pages, symbol, readStatus = "Not Read") {
   this.name = name;
   this.author = author;
   this.pages = pages;
   this.symbol = symbol;
+  this.readStatus = readStatus;
 }
 
 Book.prototype.info = function() {
@@ -46,7 +47,7 @@ function submitForm() {
   const bookInput = document.querySelector("#newBookTitle").value;
   const authorInput = document.querySelector("#newAuthor").value;
   const pagesInput = document.querySelector("#bookPages").value;
-  let bookSymbols = [ "📗", "📙", "📘", "📕"];
+  let bookSymbols = ["📕", "📗", "📘", "📙"];
 
   if (bookInput && authorInput && pagesInput) {
     let randomBook = bookSymbols[Math.floor(Math.random() * bookSymbols.length)];
@@ -75,7 +76,7 @@ function displayLibrary() {
 
     const titleDiv = document.createElement('div');
     titleDiv.className = 'book-title';
-    titleDiv.innerText = book.symbol + "\n" + book.name;
+    titleDiv.innerText = book.symbol + " " + book.name;
     bookDiv.appendChild(titleDiv);
 
     const authorDiv = document.createElement('div');
@@ -99,16 +100,13 @@ function displayLibrary() {
 
     const readButton = document.createElement("button");
     readButton.className = "read-button-style";
-    readButton.textContent = "Not Read";
+    readButton.textContent = book.readStatus;
+    readButton.style.backgroundColor = book.readStatus === "Read" ? "lightgreen" : "lightcoral";
 
     readButton.addEventListener("click", () => {
-      if (readButton.textContent === "Read") {
-        readButton.textContent = "Not Read";
-        readButton.style.backgroundColor = "lightcoral";
-      } else {
-        readButton.textContent = "Read";
-        readButton.style.backgroundColor = "lightgreen";
-      }
+      book.readStatus = book.readStatus === "Read" ? "Not Read" : "Read";
+      readButton.textContent = book.readStatus;
+      readButton.style.backgroundColor = book.readStatus === "Read" ? "lightgreen" : "lightcoral";
       saveLibrary();
     });
 
