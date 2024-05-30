@@ -83,11 +83,13 @@ button:hover{
     justify-content: center;
     align-items: center;
 
+
 }
 
 #close-button, #submit-button{
     height: 3vh;
-    width: 5vw;    
+    width: 5vw;  
+    margin: 1vh;  
 }
 
 #clear-library, #add-new{
